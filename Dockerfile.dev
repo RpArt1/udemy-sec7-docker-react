@@ -1,0 +1,8 @@
+FROM node:alpine 
+WORKDIR '/app'
+COPY package.json .
+RUN npm install
+# we leave it for future use. from the docker-compese view point it's unnecessary because of 
+# volune which maps to host dir  
+COPY . . 
+CMD ["npm", "run", "start"]
